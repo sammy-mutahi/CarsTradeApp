@@ -52,6 +52,8 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.4.0")
 
     implementation(project(Modules.presentation))
+    implementation(project(Modules.domain))
+    implementation(project(Modules.data))
 
     implementation(DaggerHilt.hiltAndroid)
     kapt(DaggerHilt.hiltCompiler)

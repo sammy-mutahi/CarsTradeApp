@@ -1,6 +1,10 @@
 package com.sammy.sell_data.di
 
 import com.sammy.sell_data.network.ApiService
+import com.sammy.sell_data.repository.CarSearchRepository
+import com.sammy.sell_domain.repository.CarMediaRepository
+import com.sammy.sell_domain.repository.PopularCarRepository
+import com.sammy.sell_domain.repository.SearchCarRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,7 +17,7 @@ import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
 @Module
-object NetworkModule {
+object SellCarTradeModule {
     @Provides
     @Singleton
     fun provideOkHttpClient(): OkHttpClient {
@@ -35,5 +39,22 @@ object NetworkModule {
             .client(client)
             .build()
             .create(ApiService::class.java)
+    }
+
+    @Provides
+    fun providePopularCarsRepository(apiService: ApiService): PopularCarRepository {
+        return com.sammy.sell_data.repository.PopularCarRepository(apiService)
+    }
+
+
+    @Provides
+    fun provideSearchCarRepository(apiService: ApiService): SearchCarRepository {
+        return CarSearchRepository(apiService)
+    }
+
+
+    @Provides
+    fun provideCarMediaRepository(apiService: ApiService): CarMediaRepository {
+        return com.sammy.sell_data.repository.CarMediaRepository(apiService)
     }
 }

@@ -22,8 +22,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    buildFeatures{
-        viewBinding = true
+    buildFeatures {
+        dataBinding = true
     }
     compileOptions {
         coreLibraryDesugaringEnabled true

@@ -22,11 +22,9 @@ object UseCaseModule {
         mediaRepository: CarMediaRepository,
         popularCarRepository: PopularCarRepository,
         searchRepository: SearchCarRepository
-    ): SellCarsUseCases {
-        return SellCarsUseCases(
-            carMediaUseCase = GetCarMedia(mediaRepository),
-            searchCarUseCase = SearchCar(searchRepository),
-            popularCarsUseCase = GetPopularCars(popularCarRepository)
-        )
-    }
+    ): SellCarsUseCases = SellCarsUseCases(
+        carMediaUseCase = GetCarMedia(mediaRepository),
+        searchCarUseCase = SearchCar(searchRepository),
+        popularCarsUseCase = GetPopularCars(popularCarRepository)
+    )
 }
