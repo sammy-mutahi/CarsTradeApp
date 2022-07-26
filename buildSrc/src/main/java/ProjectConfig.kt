@@ -1,5 +1,5 @@
 object ProjectConfig {
-    const val appId = "com.payoneer.weatherforecast"
+    const val appId = "com.sammy.gebeyacartrademobileapp"
     const val compileSdk = 32
     const val minSdk = 21
     const val targetSdk = 32
