@@ -14,3 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "GebeyaCarTradeMobileApp"
 include ':app'
+include(":sell")
+include ':sell:sell_data'
+include ':sell:sell_domain'
+include ':sell:sell_presentation'
