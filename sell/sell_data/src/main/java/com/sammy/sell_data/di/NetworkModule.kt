@@ -1,6 +1,6 @@
 package com.sammy.sell_data.di
 
-import com.sammy.sell_data.network.SellCarApi
+import com.sammy.sell_data.network.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -28,12 +28,12 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideApiService(client: OkHttpClient): SellCarApi {
+    fun provideApiService(client: OkHttpClient): ApiService {
         return Retrofit.Builder()
             .baseUrl("https://api-prod.autochek.africa/v1/inventory")
             .addConverterFactory(MoshiConverterFactory.create())
             .client(client)
             .build()
-            .create(SellCarApi::class.java)
+            .create(ApiService::class.java)
     }
 }
