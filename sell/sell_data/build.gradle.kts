@@ -8,5 +8,6 @@ dependencies {
     "implementation"(Retrofit.retrofit)
     "implementation"(Retrofit.okHttpLoggingInterceptor)
     "implementation"(Retrofit.moshiConverter)
+    "implementation"("androidx.paging:paging-runtime-ktx:3.1.1")
 
 }

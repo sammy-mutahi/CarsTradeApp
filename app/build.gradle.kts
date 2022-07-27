@@ -51,7 +51,11 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.4.0")
     implementation("androidx.navigation:navigation-ui-ktx:2.4.0")
 
+    implementation("com.facebook.fresco:fresco:2.6.0")
+
     implementation(project(Modules.presentation))
+    implementation(project(Modules.domain))
+    implementation(project(Modules.data))
 
     implementation(DaggerHilt.hiltAndroid)
     kapt(DaggerHilt.hiltCompiler)

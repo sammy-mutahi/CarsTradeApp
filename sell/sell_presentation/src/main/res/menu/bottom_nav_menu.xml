@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:enabled="true"
+        android:icon="@drawable/ic_home"
+        android:iconTint="@android:color/black"
+        android:title="Home" />
+    <item
+        android:id="@+id/nav_sell_vas"
+        android:enabled="true"
+        android:icon="@drawable/ic_favorite"
+        android:iconTint="@android:color/black"
+        android:title="Favorites" />
+
+    <item
+        android:id="@+id/nav_pay_for_stack"
+        android:enabled="true"
+        android:icon="@drawable/ic_notifications"
+        android:iconTint="@android:color/black"
+        android:title="Notifications" />
+
+    <item
+        android:id="@+id/nav_more"
+        android:enabled="true"
+        android:icon="@drawable/ic_message"
+        android:iconTint="@android:color/black"
+        android:title="Messages" />
+</menu>

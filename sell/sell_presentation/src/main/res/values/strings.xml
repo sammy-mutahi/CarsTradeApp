@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="registration_valid_characters">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRQRSTUVWXYZ\u0020
+        \'`-
+    </string>
+    <string name="explore">Explore</string>
+    <string name="no_popular_cars_found">No Popular Cars Found</string>
+    <string name="retry">Retry</string>
+    <string name="unable_to_load_data_please_try_again">Unable to load data. Please try again</string>
+    <string name="okay">Okay</string>
+</resources>
