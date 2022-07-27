@@ -28,8 +28,8 @@
 I added some screenshots in the `screenshots` folder, in the root directory of the project.
 
 Explore Page 1 | Explore Page 2 --- | --- | ---
-<img src="https://github.com/sammy-mutahi/CarsTradeApp/blob/master/screenshots/image1.png" width="280"/>
-| <img src="https://github.com/sammy-mutahi/CarsTradeApp/blob/master/screenshots/image2.png" width="280"/>
+<img src="https://github.com/sammy-mutahi/CarsTradeApp/blob/develop/screenshots/image1.png" width="280"/>
+| <img src="https://github.com/sammy-mutahi/CarsTradeApp/blob/develop/screenshots/image2.png" width="280"/>
 
 ### Undone parts (Due to time constraint)
 
