@@ -1,7 +1,6 @@
 package com.sammy.sell_presentation.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +16,8 @@ import com.sammy.sell_presentation.adapters.PopularCarLoadStateAdapter
 import com.sammy.sell_presentation.adapters.PopularCarsAdapter
 import com.sammy.sell_presentation.databinding.FragmentHomeBinding
 import com.sammy.sell_presentation.hideSoftKeyboard
+import com.sammy.sell_presentation.remove
+import com.sammy.sell_presentation.show
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -37,7 +38,7 @@ class HomeFragment : BottomNavigationFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         return homeBinding.root
     }
 
@@ -47,7 +48,7 @@ class HomeFragment : BottomNavigationFragment() {
         setupPopularCarsRecycler()
         setupSearchRecycler()
         initSearchWidget()
-        popularCarsAdapter.refresh()
+
     }
 
     private fun setupSearchRecycler() {
@@ -83,8 +84,6 @@ class HomeFragment : BottomNavigationFragment() {
             carSearchAdapter.loadStateFlow.collectLatest { state ->
                 val isRefreshing = state.refresh is LoadState.Loading
                 val isError = state.refresh is LoadState.Error
-                Log.e("HomeFragment", "Search isError: $isError")
-                Log.e("HomeFragment", "Search isRefreshing: $isRefreshing")
                 homeBinding.searchResultsRecyclerView.isVisible = !isRefreshing
                 homeBinding.carSearchContainer.isVisible = isRefreshing
                 homeBinding.noPopularCarsFoundTextView.isVisible =
@@ -99,7 +98,6 @@ class HomeFragment : BottomNavigationFragment() {
                     ?: state.source.prepend as? LoadState.Error
                     ?: state.append as? LoadState.Error
                 errorState?.let {
-                    Log.e("HomeFragment", "Search Error: ${it.error}")
                     Toast.makeText(
                         requireContext(),
                         "Failed to load: ${it.error}",
@@ -113,10 +111,9 @@ class HomeFragment : BottomNavigationFragment() {
     private fun initPopularCarAdapter() {
         lifecycleScope.launchWhenStarted {
             popularCarsAdapter.loadStateFlow.collectLatest { state ->
+
                 val isRefreshing = state.refresh is LoadState.Loading
                 val isError = state.refresh is LoadState.Error
-                Log.e("HomeFragment", "Popular isError: $isError")
-                Log.e("HomeFragment", "Popular isRefreshing: $isRefreshing")
                 homeBinding.popularCarsRecyclerView.isVisible = !isRefreshing
                 homeBinding.PopularCarsAnimation.isVisible = isRefreshing
                 homeBinding.noPopularCarsFoundTextView.isVisible =
@@ -155,8 +152,8 @@ class HomeFragment : BottomNavigationFragment() {
         homeBinding.carSearchWidget.searchBarTextInputLayout.editText?.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 homeBinding.carSearchWidget.apply {
-                    searchWidgetClose.visibility = View.VISIBLE
-                    searchWidgetMagnifier.visibility = View.GONE
+                    searchWidgetClose.show()
+                    searchWidgetMagnifier.remove()
 
                 }
             }
@@ -164,14 +161,15 @@ class HomeFragment : BottomNavigationFragment() {
         homeBinding.carSearchWidget.searchBarTextInputLayout.editText?.doOnTextChanged { text, _, _, _ ->
             val searchQuery = text.toString()
             submitSearch(searchQuery)
+            loadPopularCars()
         }
 
         homeBinding.carSearchWidget.searchWidgetClose.setOnClickListener {
             hideSoftKeyboard()
             homeBinding.carSearchWidget.searchBarTextInputLayout.clearFocus()
             homeBinding.carSearchWidget.searchBarEditText.text = null
-            homeBinding.carSearchWidget.searchWidgetClose.visibility = View.GONE
-            homeBinding.carSearchWidget.searchWidgetMagnifier.visibility = View.VISIBLE
+            homeBinding.carSearchWidget.searchWidgetClose.remove()
+            homeBinding.carSearchWidget.searchWidgetMagnifier.show()
         }
     }
 

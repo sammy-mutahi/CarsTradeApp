@@ -35,7 +35,9 @@ class CarSearchAdapter :
             binding.apply {
                 searchCarImageView.setImageURI(item.imageUrl)
                 searchTextView.text = item.title
-                carPrice.text = item.marketplacePrice.toString()
+                carPrice.text = "$${item.marketplacePrice}"
+                textLicencePlate.text = item.licensePlate
+                mileageText.text = "${item.mileage} ${item.mileageUnit}"
             }
         }
     }

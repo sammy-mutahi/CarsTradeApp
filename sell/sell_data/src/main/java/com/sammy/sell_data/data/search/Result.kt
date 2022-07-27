@@ -13,7 +13,7 @@ data class Result(
     val imageUrl: String,
     val installment: Int,
     val licensePlate: String?,
-    val loanValue: Int,
+    val loanValue: Double,
     val marketplaceOldPrice: Int,
     val marketplacePrice: Int,
     val marketplaceVisibleDate: String,

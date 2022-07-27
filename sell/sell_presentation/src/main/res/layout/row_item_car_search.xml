@@ -14,7 +14,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/materialCardView"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="300dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="150dp"
             android:layout_marginEnd="32dp"
@@ -33,30 +33,56 @@
                 android:elevation="1dp"
                 android:focusable="true">
 
-                <com.google.android.material.textview.MaterialTextView
+                <TextView
                     android:id="@+id/searchTextView"
-                    style="@style/TextAppearance.MaterialComponents.Headline5"
+                    style="@style/TextAppearance.MaterialComponents.Headline6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/carPrice"
+                    app:layout_constraintEnd_toStartOf="@+id/textView"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     tools:text="Subaru Forester xxx" />
 
-                <com.google.android.material.textview.MaterialTextView
+                <TextView
                     android:id="@+id/carPrice"
-                    style="@style/TextAppearance.MaterialComponents.Headline6"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="44dp"
+                    android:layout_marginBottom="40dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/searchTextView"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     tools:text="$115" />
+
+                <TextView
+                    android:id="@+id/textLicencePlate"
+                    style="@style/MaterialAlertDialog.MaterialComponents.Title.Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/searchTextView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/searchTextView"
+                    tools:text="KCP" />
+
+                <TextView
+                    android:id="@+id/mileageText"
+                    style="@style/TextAppearance.AppCompat.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/carPrice"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textLicencePlate"
+                    tools:text="128 km" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -90,9 +116,10 @@
                 <com.facebook.drawee.view.SimpleDraweeView
                     android:id="@+id/searchCarImageView"
                     android:layout_width="200dp"
-                    android:layout_height="200dp"
+                    android:layout_height="250dp"
                     android:layout_marginTop="32dp"
                     android:layout_marginBottom="32dp"
+                    android:scaleType="centerInside"
                     android:background="@android:color/transparent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

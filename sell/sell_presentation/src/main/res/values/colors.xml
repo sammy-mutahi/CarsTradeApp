@@ -19,4 +19,5 @@
     <color name="colorGreyThree">#9E9EA3</color>
     <color name="placeholderColor">#ECF0F7</color>
     <color name="colorGreyFour">#CDCDD0</color>
+    <color name="background_color">#F7F7F9</color>
 </resources>

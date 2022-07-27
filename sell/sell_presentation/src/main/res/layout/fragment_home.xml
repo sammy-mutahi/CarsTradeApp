@@ -17,9 +17,10 @@
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#F7F7F9">
+            android:background="@color/background_color">
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolbar"
@@ -32,7 +33,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:navigationIcon="@drawable/ic_baseline_category_24"
+                app:navigationIcon="@drawable/ic_category"
                 app:navigationIconTint="@android:color/black">
 
                 <TextView
@@ -41,8 +42,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
-                    android:text="Explore"
-                    android:textColor="@android:color/black" />
+                    android:text="@string/explore"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
             </com.google.android.material.appbar.MaterialToolbar>
 
@@ -51,9 +54,9 @@
                 layout="@layout/item_search_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="32dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/toolbar" />
@@ -90,18 +93,16 @@
                 android:layout_marginEnd="16dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="@+id/carSearchWidget"
-                app:layout_constraintStart_toStartOf="@+id/carSearchWidget"
-                app:layout_constraintTop_toBottomOf="@id/carSearchWidget"
-                tools:itemCount="2"
-                tools:listitem="@layout/row_item_popular" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/carSearchWidget" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/noPopularCarsFoundTextView"
                 style="@style/HeadingFour"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="No Popular Cars Found"
+                android:text="@string/no_popular_cars_found"
                 android:textAlignment="center"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -154,11 +155,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
-                android:layout_marginBottom="24dp"
-                android:text="Retry"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="@string/retry"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/searchResultsRecyclerView" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/errorLoadingDataTextView"
@@ -166,7 +166,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:text="Unable to load data. Please try again"
+                android:text="@string/unable_to_load_data_please_try_again"
                 android:textAlignment="center"
                 android:textColor="@color/colorError"
                 app:layout_constraintBottom_toTopOf="@+id/retryButton"
