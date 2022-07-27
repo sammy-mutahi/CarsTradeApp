@@ -6,8 +6,10 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.24583333333333332" />
         <entry key="sell/sell_presentation/src/main/res/drawable/bottom_nav_item_background.xml" value="0.1235" />
         <entry key="sell/sell_presentation/src/main/res/drawable/circular_background.xml" value="0.1415" />
+        <entry key="sell/sell_presentation/src/main/res/drawable/ic_error.xml" value="0.1415" />
         <entry key="sell/sell_presentation/src/main/res/drawable/material_primary_button_background_v2.xml" value="0.1235" />
         <entry key="sell/sell_presentation/src/main/res/drawable/placeholder_background.xml" value="0.1415" />
+        <entry key="sell/sell_presentation/src/main/res/layout/fragment_dynamic_error.xml" value="0.24583333333333332" />
         <entry key="sell/sell_presentation/src/main/res/layout/fragment_home.xml" value="0.24583333333333332" />
         <entry key="sell/sell_presentation/src/main/res/layout/item_search_view.xml" value="0.24583333333333332" />
         <entry key="sell/sell_presentation/src/main/res/layout/list_item_load_state.xml" value="0.24583333333333332" />

@@ -141,4 +141,20 @@
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/colorButtons</item>
     </style>
+
+    <style name="Heading.2" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/sora_bold</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="HeadingError" parent="Heading.2">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="Prompt" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/sora_medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorButtons</item>
+    </style>
+
 </resources>
