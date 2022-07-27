@@ -52,10 +52,12 @@ fun List<Result>.toSearchResult(): List<SearchCarResult> {
 internal fun List<Make>.toPopularCars(): List<PopularCar> {
     val result = mutableListOf<PopularCar>()
     this.forEach {
-        PopularCar(
-            it.id,
-            it.imageUrl,
-            it.name
+        result.add(
+            PopularCar(
+                it.id,
+                it.imageUrl,
+                it.name
+            )
         )
     }
     return result
@@ -64,11 +66,13 @@ internal fun List<Make>.toPopularCars(): List<PopularCar> {
 internal fun List<CarMedia>.toCarMedia(): List<com.sammy.sell_domain.data.CarMedia> {
     val result = mutableListOf<com.sammy.sell_domain.data.CarMedia>()
     this.forEach {
-        com.sammy.sell_domain.data.CarMedia(
-            it.id,
-            it.name,
-            it.type,
-            it.url
+        result.add(
+            com.sammy.sell_domain.data.CarMedia(
+                it.id,
+                it.name,
+                it.type,
+                it.url
+            )
         )
     }
     return result

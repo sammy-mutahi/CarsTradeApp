@@ -1,7 +1,6 @@
 package com.sammy.sell_data.repository
 
 
-import android.util.Log
 import androidx.paging.*
 import com.sammy.sell_data.network.ApiService
 import com.sammy.sell_data.utils.toPopularCars
@@ -62,7 +61,6 @@ private class PopularCarsSource(
                 nextKey = nextKey
             )
         } catch (e: Throwable) {
-            Log.e("PopularCarRepo", "Error: ${e.message}")
             return LoadResult.Error(e)
         }
     }

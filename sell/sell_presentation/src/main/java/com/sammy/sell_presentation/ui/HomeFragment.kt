@@ -12,8 +12,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import com.sammy.sell_presentation.R
 import com.sammy.sell_presentation.adapters.CarSearchAdapter
+import com.sammy.sell_presentation.adapters.MostBoughtCarsAdapter
 import com.sammy.sell_presentation.adapters.PopularCarLoadStateAdapter
-import com.sammy.sell_presentation.adapters.PopularCarsAdapter
 import com.sammy.sell_presentation.databinding.FragmentHomeBinding
 import com.sammy.sell_presentation.hideSoftKeyboard
 import com.sammy.sell_presentation.remove
@@ -29,7 +29,7 @@ class HomeFragment : BottomNavigationFragment() {
         FragmentHomeBinding.inflate(layoutInflater)
     }
 
-    private lateinit var popularCarsAdapter: PopularCarsAdapter
+    private lateinit var popularCarsAdapter: MostBoughtCarsAdapter
     private lateinit var carSearchAdapter: CarSearchAdapter
 
     private val viewModel: DashboardViewModel by viewModels()
@@ -66,7 +66,7 @@ class HomeFragment : BottomNavigationFragment() {
     }
 
     private fun setupPopularCarsRecycler() {
-        popularCarsAdapter = PopularCarsAdapter()
+        popularCarsAdapter = MostBoughtCarsAdapter()
         homeBinding.popularCarsRecyclerView.apply {
             adapter = popularCarsAdapter
                 .withLoadStateHeaderAndFooter(

@@ -1,6 +1,5 @@
 package com.sammy.sell_presentation.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -12,7 +11,7 @@ import com.sammy.sell_domain.data.PopularCar
 import com.sammy.sell_presentation.R
 import com.sammy.sell_presentation.databinding.RowItemPopularBinding
 
-class PopularCarsAdapter : PagingDataAdapter<PopularCar, RecyclerView.ViewHolder>(
+class MostBoughtCarsAdapter : PagingDataAdapter<PopularCar, RecyclerView.ViewHolder>(
     UIMODEL_COMPARATOR
 ) {
 
@@ -51,9 +50,13 @@ class PopularCarsAdapter : PagingDataAdapter<PopularCar, RecyclerView.ViewHolder
     class PopularCarsViewHolder(private val binding: RowItemPopularBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: PopularCar) {
-            Log.e("Adapter", "Name: ${item.name}")
             binding.apply {
-                popularImageView.load(item.imageUrl) { placeholder(R.drawable.placeholder_background) }
+                popularImageView.load(
+                    item.imageUrl,
+                    imageLoader = com.sammy.sell_presentation.utils.ImageLoader.getCoilImageLoader(
+                        binding.root.context
+                    )
+                ) { placeholder(R.drawable.placeholder_background) }
                 popularTextView.text = item.name
             }
         }
