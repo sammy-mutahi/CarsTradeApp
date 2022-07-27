@@ -5,6 +5,11 @@
 
     <data>
 
+        <import type="com.sammy.sell_presentation.utils.ViewState" />
+
+        <variable
+            name="viewModel"
+            type="com.sammy.sell_presentation.ui.DashboardViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -53,6 +58,29 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/PopularCarsAnimation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintEnd_toEndOf="@+id/carSearchWidget"
+                app:layout_constraintStart_toStartOf="@+id/carSearchWidget"
+                app:layout_constraintTop_toBottomOf="@id/carSearchWidget"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/placeholder_popular_cars" />
+
+                    <include layout="@layout/placeholder_popular_cars" />
+                </LinearLayout>
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/popularCarsRecyclerView"
                 android:layout_width="match_parent"
@@ -60,12 +88,52 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:scrollbars="horizontal"
+                android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="@+id/carSearchWidget"
                 app:layout_constraintStart_toStartOf="@+id/carSearchWidget"
                 app:layout_constraintTop_toBottomOf="@id/carSearchWidget"
-                tools:itemCount="5" />
+                tools:itemCount="2"
+                tools:listitem="@layout/row_item_popular" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/noPopularCarsFoundTextView"
+                style="@style/HeadingFour"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="No Popular Cars Found"
+                android:textAlignment="center"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/carSearchContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/popularCarsRecyclerView"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/placeholder_search" />
+
+                    <include layout="@layout/placeholder_search" />
+
+                    <include layout="@layout/placeholder_search" />
+                </LinearLayout>
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/searchResultsRecyclerView"
@@ -74,9 +142,43 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="@+id/popularCarsRecyclerView"
                 app:layout_constraintStart_toStartOf="@+id/popularCarsRecyclerView"
                 app:layout_constraintTop_toBottomOf="@id/popularCarsRecyclerView" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/retryButton"
+                style="@style/MaterialPrimaryButtonV2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="24dp"
+                android:text="Retry"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/errorLoadingDataTextView"
+                style="@style/HeadingSix"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="Unable to load data. Please try again"
+                android:textAlignment="center"
+                android:textColor="@color/colorError"
+                app:layout_constraintBottom_toTopOf="@+id/retryButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/retryGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="errorLoadingDataTextView, retryButton" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

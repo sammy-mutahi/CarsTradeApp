@@ -1,5 +1,6 @@
 package com.sammy.sell_data.repository
 
+import android.util.Log
 import androidx.paging.*
 import com.sammy.sell_data.network.ApiService
 import com.sammy.sell_data.utils.toSearchResult
@@ -57,6 +58,7 @@ class CarSearchResultsSource(
                 nextKey = nextkey
             )
         } catch (e: Throwable) {
+            Log.e("Repository", "CarSearchError: ${e.message}")
             return LoadResult.Error(e)
         }
     }

@@ -22,7 +22,7 @@ fun List<Result>.toSearchResult(): List<SearchCarResult> {
                 id = it.id,
                 imageUrl = it.imageUrl,
                 installment = it.installment,
-                licensePlate = it.licensePlate,
+                licensePlate = it.licensePlate ?: "",
                 loanValue = it.loanValue,
                 marketplaceOldPrice = it.marketplaceOldPrice,
                 marketplacePrice = it.marketplacePrice,

@@ -12,7 +12,7 @@ data class Result(
     val id: String,
     val imageUrl: String,
     val installment: Int,
-    val licensePlate: String,
+    val licensePlate: String?,
     val loanValue: Int,
     val marketplaceOldPrice: Int,
     val marketplacePrice: Int,

@@ -42,6 +42,7 @@
                 android:inputType="text"
                 android:maxLines="1"
                 android:singleLine="true"
+                android:textColor="@android:color/black"
                 tools:ignore="TextContrastCheck"
                 tools:text="Search" />
         </com.google.android.material.textfield.TextInputLayout>

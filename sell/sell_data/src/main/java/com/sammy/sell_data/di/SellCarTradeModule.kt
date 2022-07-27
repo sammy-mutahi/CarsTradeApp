@@ -34,7 +34,7 @@ object SellCarTradeModule {
     @Singleton
     fun provideApiService(client: OkHttpClient): ApiService {
         return Retrofit.Builder()
-            .baseUrl("https://api-prod.autochek.africa/v1/inventory")
+            .baseUrl("https://api-prod.autochek.africa/v1/inventory/")
             .addConverterFactory(MoshiConverterFactory.create())
             .client(client)
             .build()

@@ -9,26 +9,26 @@ import retrofit2.http.Query
 
 interface ApiService {
 
-    @GET("/make")
+    @GET("make")
     suspend fun getPopularCars(
         @Query("popular") popular: Boolean,
         @Query("pageNumber") pageNumber: Int,
         @Query("pageSize") pageSize: Int
     ): PopularCarsDto
 
-    @GET("/car/search")
+    @GET("car/search")
     suspend fun searchCars(
         @Query("query") query: String,
         @Query("pageNumber") pageNumber: Int,
         @Query("pageSize") pageSize: Int
     ): CarSearchDto
 
-    @GET("/car/{carId}")
+    @GET("car/{carId}")
     suspend fun getCarDetails(
         @Path("carId") carId: String
     )
 
-    @GET("/car_media")
+    @GET("car_media")
     suspend fun getCarMedia(
         @Query("carId") carId: String,
         @Query("pageNumber") pageNumber: Int,
