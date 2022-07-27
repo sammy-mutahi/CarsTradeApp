@@ -42,7 +42,7 @@
                     android:layout_marginBottom="4dp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/carPrice"
-                    app:layout_constraintEnd_toStartOf="@+id/textView"
+                    app:layout_constraintEnd_toStartOf="@+id/textLicencePlate"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     tools:text="Subaru Forester xxx" />
@@ -54,7 +54,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="40dp"
-                    android:textSize="18sp"
+                    android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/searchTextView"
