@@ -18,6 +18,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 @Module
 object SellCarTradeModule {
+    private const val BASE_URL = "https://api-prod.autochek.africa/v1/inventory/"
     @Provides
     @Singleton
     fun provideOkHttpClient(): OkHttpClient {
@@ -34,7 +35,7 @@ object SellCarTradeModule {
     @Singleton
     fun provideApiService(client: OkHttpClient): ApiService {
         return Retrofit.Builder()
-            .baseUrl("https://api-prod.autochek.africa/v1/inventory/")
+            .baseUrl(BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create())
             .client(client)
             .build()
